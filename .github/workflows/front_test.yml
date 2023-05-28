@@ -27,6 +27,7 @@ jobs:
           npm run test:unit
 
       - name: E2E
+        run: cd front
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
