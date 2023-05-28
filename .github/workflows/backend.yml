@@ -9,8 +9,8 @@ jobs:
     name: verify
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres:15
+      db:
+        image: postgres
         ports:
           - 5432:5432
         env:
