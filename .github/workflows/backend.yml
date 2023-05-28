@@ -26,10 +26,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.SUB_MODULE_TOKEN }}
-        submodules: true
 
     - name: Set up Ruby 3.2
       uses: ruby/setup-ruby@v1
@@ -47,4 +43,4 @@ jobs:
 
     - name: Run rails test
       run: |
-        bundle exec rails test
+        bundle exec rspec
