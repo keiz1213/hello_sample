@@ -25,5 +25,10 @@ jobs:
           cd front
           npm run lint
           npm run test:unit
-          npm run test:e2e
+
+      - name: E2E
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm run start
 
