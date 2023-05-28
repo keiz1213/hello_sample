@@ -41,6 +41,7 @@ jobs:
 
       - name: db migrate
         run: |
+          cd api
           bundle exec rails db:migrate
 
       - name: verify
