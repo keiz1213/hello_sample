@@ -22,7 +22,6 @@ jobs:
       image: ruby:3.2.2
       env:
         RAILS_ENV: test
-        POSTGRES_HOST: db
         POSTGRES_PASSWORD: password
 
     steps:
