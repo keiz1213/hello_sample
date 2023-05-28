@@ -9,22 +9,22 @@ jobs:
     name: verify
     runs-on: ubuntu-latest
     services:
-      db:
+      postgres:
         image: postgres
         ports:
           - 5432:5432
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: test
+          POSTGRES_DB: app_test
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     container:
       image: ruby:3.2.2
       env:
         RAILS_ENV: test
         POSTGRES_HOST: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: password
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
 
     steps:
       - name: checkout
