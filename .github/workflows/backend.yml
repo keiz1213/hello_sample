@@ -36,9 +36,9 @@ jobs:
           bundle install
 
       - name: install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
 
       - name: db migrate
         run: |
