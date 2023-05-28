@@ -6,42 +6,44 @@ on:
       - main
 jobs:
   build:
+    name: verify
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
     services:
       postgres:
-        image: postgres
+        image: postgres:15
         ports:
           - 5432:5432
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          POSTGRES_DB: test
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    container:
+      image: ruby:3.2.2
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: postgres
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
 
     steps:
-    - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: bundler set up
+        run: |
+          cd api
+          gem install bundler
+          bundle install
+      - name: install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18'
 
-    - name: Set up Ruby 3.2
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2.2
-        bundler-cache: true
+      - name: db migrate
+        run: |
+          bundle exec rails db:migrate
 
-    - name: Create and migrate database
-      run: |
-        cd api
-        pwd
-        ls -a
-        bundle install
-        bundle exec rails db:create RAILS_ENV=test
-        bundle exec rails db:migrate RAILS_ENV=test
-
-    - name: Run rails test
-      run: |
-        bundle exec rspec
+      - name: verify
+        run: |
+          bundle exec rubocop
+          bundle exec rspec
