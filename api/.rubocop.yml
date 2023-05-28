@@ -6,8 +6,11 @@ inherit_gem:
 
 require:
   - rubocop-performance
-  - rubocop-rails
   - rubocop-rspec
 
 AllCops:
   NewCops: enable
+  DisplayCopNames: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
