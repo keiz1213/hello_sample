@@ -1,0 +1,50 @@
+name: Run rspec, rubocop
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: password
+
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.SUB_MODULE_TOKEN }}
+        submodules: true
+
+    - name: Set up Ruby 3.2
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+        bundler-cache: true
+
+    - name: Create and migrate database
+      run: |
+        cd api
+        pwd
+        ls -a
+        bundle exec bin/rails db:create RAILS_ENV=test
+        bundle exec bin/rails db:migrate RAILS_ENV=test
+
+    - name: Run rails test
+      run: |
+        bundle exec rails test
