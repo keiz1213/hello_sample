@@ -49,3 +49,4 @@ jobs:
         run: |
           cd api
           bundle exec rspec
+          bundle exec rubocop
