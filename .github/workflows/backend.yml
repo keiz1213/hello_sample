@@ -23,7 +23,6 @@ jobs:
       env:
         RAILS_ENV: test
         POSTGRES_HOST: db
-        RAILS_DATABASE_USER: postgres
         POSTGRES_PASSWORD: password
 
     steps:
