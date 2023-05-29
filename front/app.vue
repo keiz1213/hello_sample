@@ -23,5 +23,8 @@
       <input v-model="name" type="text" />
       <HelloWorld :name="name" />
     </div>
+    <div>
+      <p>こんにちは</p>
+    </div>
   </div>
 </template>
