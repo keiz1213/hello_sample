@@ -1,8 +1,18 @@
+<script setup lang="ts">
+  const { signOut } = useAuth()
+
+  const logout = async (): Promise<void> => {
+    await signOut()
+    navigateTo('/', { replace: true })
+    console.log('logoutしました')
+  }
+</script>
+
 <template>
   <div>
     <div>
       <h1>Home</h1>
     </div>
-    <NuxtLink to="/">topへ</NuxtLink>
+    <button @click="logout">logout</button>
   </div>
 </template>

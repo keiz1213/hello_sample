@@ -1,12 +1,20 @@
 <script setup lang="ts">
   const msgs = ref<string[]>([])
   const name = ref<string>('World')
+  const { githubLogin } = useAuth()
+
+  const login = async () => {
+    await githubLogin()
+    navigateTo('/home', { replace: true })
+    console.log('loginしました')
+  }
 
   const getHello = async (): Promise<void> => {
     const { data } = await useMyFetch('/api/v1/hello')
     const msg = data.value as string
     msgs.value.push(msg)
   }
+  console.log('---------------------------------')
 </script>
 
 <template>
@@ -27,9 +35,7 @@
       <p>こんにちは</p>
     </div>
     <div>
-      <NuxtLink to="/home">
-        <button>Homeページへ</button>
-      </NuxtLink>
+      <button @click="login">Homeページへ</button>
     </div>
   </div>
 </template>
