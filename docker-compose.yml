@@ -30,6 +30,9 @@ services:
         WORKDIR: $WORKDIR
         CONTAINER_PORT: $CONTAINER_PORT
         API_URL: "http://localhost:$API_PORT"
+        FIREBASE_API_KEY: $FIREBASE_API_KEY
+        FIREBASE_AUTH_DOMAIN: $FIREBASE_AUTH_DOMAIN
+        FIREBASE_PROJECT_ID: $FIREBASE_PROJECT_ID
     command: npm run dev
     volumes:
       - ./front:/$WORKDIR
