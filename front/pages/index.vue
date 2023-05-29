@@ -26,5 +26,10 @@
     <div>
       <p>こんにちは</p>
     </div>
+    <div>
+      <NuxtLink to="/home">
+        <button>Homeページへ</button>
+      </NuxtLink>
+    </div>
   </div>
 </template>
