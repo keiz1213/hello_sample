@@ -4,7 +4,7 @@ RSpec.describe 'HelloApi' do
   describe 'GET /hello_api' do
     it 'returns hello' do
       get '/api/v1/hello'
-      expect(response.body).to eq 'Hello, World!! Yes!!'
+      expect(response.body).to eq 'Hello, World!! Hey! Yes!!'
     end
   end
 end
