@@ -32,6 +32,7 @@
     "vitest": "^0.31.1"
   },
   "dependencies": {
+    "firebase": "^9.22.1",
     "jsdom": "^22.0.0"
   }
 }
