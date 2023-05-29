@@ -12,7 +12,7 @@
 <template>
   <div>
     <div>
-      <button id="hello" @click="getHello">RailsからAPIを取得する</button>
+      <button id="hello" @click="getHello">HelloAPIを叩く</button>
       <ul>
         <li v-for="(msg, index) in msgs" :key="index">
           {{ msg }}

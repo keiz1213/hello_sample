@@ -6,6 +6,6 @@ describe('example hello', () => {
   })
 
   it('hello button', () => {
-    cy.get('#hello').should('have.text', 'RailsからAPIを取得する')
+    cy.get('#hello').should('have.text', 'HelloAPIを叩く')
   })
 })
