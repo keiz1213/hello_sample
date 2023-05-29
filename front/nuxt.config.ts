@@ -3,8 +3,7 @@ export default defineNuxtConfig({
   ssr: false,
   runtimeConfig: {
     public: {
-      baseURL: process.env.API_URL,
-      containerPort: process.env.CONTAINER_PORT
+      baseURL: process.env.API_URL
     }
   }
 })
