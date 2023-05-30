@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   runtimeConfig: {
-    ssr: false,
     public: {
       baseURL: process.env.API_URL,
       firebaseApiKey: process.env.FIREBASE_API_KEY,
