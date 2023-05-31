@@ -7,6 +7,12 @@ app = "hello-sample-api"
 primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 
+[[deploy.targets]]
+  name = app
+  commands = [
+    "bin/rails db:migrate"  # マイグレーションの実行コマンドを追加
+  ]
+
 [http_service]
   internal_port = 3000
   force_https = true
