@@ -8,7 +8,7 @@ primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 
 [[deploy.targets]]
-  name = app
+  name = "hello-sample-api"
   commands = [
     "bin/rails db:migrate"  # マイグレーションの実行コマンドを追加
   ]
