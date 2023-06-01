@@ -25,6 +25,7 @@ services:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       API_DOMAIN: "localhost:$FRONT_PORT"
       FIREBASE_PROJECT_ID: $FIREBASE_PROJECT_ID
+      REDIS_HOST: redis
     volumes:
       - ./api:/$WORKDIR
     depends_on:
