@@ -15,7 +15,6 @@ export const useAuth = () => {
         authorization: `Bearer ${firebaseToken}`
       }
     })
-    console.log(firebaseToken)
     const user = data.value as User
     return user
   }
