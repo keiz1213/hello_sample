@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const { signOut } = useAuth()
-
+  const { currentUser } = useAuth()
   const logout = async (): Promise<void> => {
     await signOut()
     navigateTo('/', { replace: true })
@@ -14,5 +14,6 @@
       <h1>Home</h1>
     </div>
     <button @click="logout">logout</button>
+    {{ currentUser.name }}
   </div>
 </template>
