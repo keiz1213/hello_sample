@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    FirebaseIdToken::Certificates.request!
     token = request.headers['Authorization']&.split&.last
     payload = FirebaseIdToken::Signature.verify(token)
     uid = payload['sub']
