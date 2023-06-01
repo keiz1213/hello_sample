@@ -22,7 +22,6 @@
     const userArray = data.value as User[]
     users.value = userArray
   }
-  console.log('---------------------------------')
 </script>
 
 <template>
