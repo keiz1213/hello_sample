@@ -9,7 +9,7 @@ import { User } from '@/types/User'
 
 export const useAuth = () => {
   const getUser = async (firebaseToken: string): Promise<User> => {
-    const { data } = await useFetch('http://localhost:3001/api/v1/users', {
+    const { data } = await useMyFetch('/api/v1/users', {
       method: 'post',
       headers: {
         authorization: `Bearer ${firebaseToken}`
@@ -56,10 +56,10 @@ export const useAuth = () => {
     const auth = getAuth()
     const provider = new GithubAuthProvider()
     const result = await signInWithPopup(auth, provider)
-    // const firebaseToken = await result.user.getIdToken()
-    console.log(result.user)
-    // const user = await getUser(firebaseToken)
-    // setCurrentUser(user, firebaseToken)
+    const firebaseToken = await result.user.getIdToken()
+    // console.log(result.user)
+    const user = await getUser(firebaseToken)
+    setCurrentUser(user, firebaseToken)
   }
 
   const signOut = async (): Promise<void> => {
