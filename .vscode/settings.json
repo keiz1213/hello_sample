@@ -1,8 +1,7 @@
 {
   "editor.fontSize": 24,
-  "eslint.workingDirectories": [
-    "./front"
-  ],
+  "eslint.workingDirectories": ["./front"],
+  "workbench.colorTheme": "Tomorrow Night Blue",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
