@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { User } from '@/types/User'
+
   const msgs = ref<string[]>([])
   const name = ref<string>('World')
   const users = ref<User[]>([])
@@ -21,6 +22,15 @@
     const { data } = await useMyFetch('/api/v1/users')
     const userArray = data.value as User[]
     users.value = userArray
+  }
+
+  const notify = () => {
+    useNuxtApp().$toast.info('Hello World.\n I am <b>Tom</b>', {
+      autoClose: 2000,
+      dangerouslyHTMLString: true
+    })
+    // or
+    // toast.info('toastify success', { autoClose: 5000 });
   }
 </script>
 
@@ -47,6 +57,9 @@
     <div>
       <button @click="getAllUser">getAllUser</button>
       {{ users }}
+    </div>
+    <div>
+      <button @click="notify">toast</button>
     </div>
   </div>
 </template>
