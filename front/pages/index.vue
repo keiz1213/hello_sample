@@ -22,9 +22,6 @@
     const userArray = data.value as User[]
     users.value = userArray
   }
-  const imgUrl1 = new URL('../assets/images/1.svg', import.meta.url).href
-  const imgUrl2 = new URL('@/assets/images/2.svg', import.meta.url).href
-  const imgUrl3 = new URL('./assets/images/3.svg', import.meta.url).href
 </script>
 
 <template>
@@ -50,15 +47,6 @@
     <div>
       <button @click="getAllUser">getAllUser</button>
       {{ users }}
-    </div>
-    <div>
-      <img :src="imgUrl1" alt="1" />
-    </div>
-    <div>
-      <img :src="imgUrl2" alt="2" />
-    </div>
-    <div>
-      <img :src="imgUrl3" alt="3" />
     </div>
   </div>
 </template>
