@@ -23,15 +23,6 @@
     const userArray = data.value as User[]
     users.value = userArray
   }
-
-  const notify = () => {
-    useNuxtApp().$toast.info('Hello World.\n I am <b>Tom</b>', {
-      autoClose: 2000,
-      dangerouslyHTMLString: true
-    })
-    // or
-    // toast.info('toastify success', { autoClose: 5000 });
-  }
 </script>
 
 <template>
@@ -57,9 +48,6 @@
     <div>
       <button @click="getAllUser">getAllUser</button>
       {{ users }}
-    </div>
-    <div>
-      <button @click="notify">toast</button>
     </div>
   </div>
 </template>
