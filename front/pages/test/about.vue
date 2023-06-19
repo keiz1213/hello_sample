@@ -19,9 +19,9 @@
 
 <template>
   <div>
-    <img :src="user.avatar_url" />
-    <img :src="user2.avatar_url" />
-    <img :src="user3.avatar_url" />
-    <img :src="user4.avatar_url" />
+    <img :src="user.avatar_url" alt="user" />
+    <img :src="user2.avatar_url" alt="user2" />
+    <img :src="user3.avatar_url" alt="user3" />
+    <img :src="user4.avatar_url" alt="user4" />
   </div>
 </template>
