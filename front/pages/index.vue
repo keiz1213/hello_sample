@@ -48,7 +48,7 @@
       <p>こんにちは</p>
     </div>
     <div>
-      <button @click="login">Homeページへ</button>
+      <NuxtLink :to="'/about'"></NuxtLink>
     </div>
     <div>
       <button @click="getAllUser">getAllUser</button>
