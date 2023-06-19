@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { User } from '@/types/User'
-
+  import { createTestUser } from '~/utils/createUser'
   const msgs = ref<string[]>([])
   const name = ref<string>('World')
   const users = ref<User[]>([])
@@ -23,6 +23,11 @@
     const userArray = data.value as User[]
     users.value = userArray
   }
+
+  const index = 0
+  const user = createTestUser()
+  const user2 = createTestUser()
+  user2.avatar_url += `/${index + 1}.svg`
 </script>
 
 <template>
@@ -49,5 +54,7 @@
       <button @click="getAllUser">getAllUser</button>
       {{ users }}
     </div>
+    <img :src="user.avatar_url" />
+    <img :src="user2.avatar_url" />
   </div>
 </template>
