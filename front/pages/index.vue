@@ -4,13 +4,6 @@
   const msgs = ref<string[]>([])
   const name = ref<string>('World')
   const users = ref<User[]>([])
-  const { githubLogin } = useAuth()
-
-  const login = async () => {
-    await githubLogin()
-    navigateTo('/home', { replace: true })
-    console.log('loginしました')
-  }
 
   const getHello = async (): Promise<void> => {
     const { data } = await useMyFetch('/api/v1/hello')
@@ -48,7 +41,7 @@
       <p>こんにちは</p>
     </div>
     <div>
-      <NuxtLink :to="'/about'"></NuxtLink>
+      <NuxtLink :to="'/about'">about</NuxtLink>
     </div>
     <div>
       <button @click="getAllUser">getAllUser</button>
