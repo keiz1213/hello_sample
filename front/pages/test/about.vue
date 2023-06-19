@@ -12,7 +12,7 @@
     import.meta.url
   ).href
   user4.avatar_url = new URL(
-    `@/assets/images/${index + 1}.svg`,
+    `../../assets/images/${index + 1}.svg`,
     import.meta.url
   ).href
 </script>
